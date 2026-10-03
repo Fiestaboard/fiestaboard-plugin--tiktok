@@ -1,0 +1,246 @@
+{
+  "id": "tiktok",
+  "name": "TikTok",
+  "version": "1.0.0",
+  "description": "Show your TikTok follower, following, like and video counts. Signs in to your TikTok account through your own free TikTok developer app.",
+  "author": "FiestaBoard Team",
+  "repository": "https://github.com/Fiestaboard/fiestaboard-plugin--tiktok",
+  "documentation": "README.md",
+  "icon": "users",
+  "category": "data",
+  "fiestaboard_version": ">=9.9.0",
+  "min_refresh_seconds": 300,
+  "oauth": {
+    "provider_name": "TikTok",
+    "flows": [
+      "relay"
+    ],
+    "authorization_url": "https://www.tiktok.com/v2/auth/authorize/",
+    "token_url": "https://open.tiktokapis.com/v2/oauth/token/",
+    "scopes": [
+      "user.info.basic",
+      "user.info.stats"
+    ],
+    "scope_separator": ",",
+    "client_id_param": "client_key",
+    "client_id_setting": "client_id",
+    "client_secret_setting": "client_secret",
+    "app_setup_url": "https://developers.tiktok.com/apps/"
+  },
+  "settings_schema": {
+    "type": "object",
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "title": "Enable TikTok",
+        "default": false
+      },
+      "client_id": {
+        "type": "string",
+        "title": "Client Key",
+        "description": "The Client key of your own TikTok app (in Sandbox mode is fine). Create the app at developers.tiktok.com/apps, add Login Kit with the redirect URI shown in Account connection, then copy its Client key."
+      },
+      "client_secret": {
+        "type": "string",
+        "title": "Client Secret",
+        "description": "The Client secret shown next to your TikTok app's Client key. It stays on your board and is only sent to TikTok.",
+        "ui:widget": "password"
+      },
+      "refresh_seconds": {
+        "type": "integer",
+        "title": "Refresh Interval (seconds)",
+        "description": "How often to ask TikTok for your counts. They change slowly, so every 15 minutes is plenty.",
+        "default": 900,
+        "minimum": 300,
+        "maximum": 86400
+      }
+    }
+  },
+  "variables": {
+    "groups": {
+      "account": {
+        "label": "Account"
+      },
+      "stats": {
+        "label": "Stats"
+      }
+    },
+    "simple": {
+      "display_name": {
+        "description": "Your TikTok display name",
+        "type": "string",
+        "max_length": 22,
+        "group": "account",
+        "example": "PIXEL OWL"
+      },
+      "followers": {
+        "description": "Follower count",
+        "type": "number",
+        "group": "stats",
+        "example": "15600"
+      },
+      "followers_short": {
+        "description": "Follower count shortened",
+        "type": "string",
+        "max_length": 6,
+        "group": "stats",
+        "example": "16K"
+      },
+      "following": {
+        "description": "How many accounts you follow",
+        "type": "number",
+        "group": "stats",
+        "example": "321"
+      },
+      "following_short": {
+        "description": "Following count shortened",
+        "type": "string",
+        "max_length": 6,
+        "group": "stats",
+        "example": "321"
+      },
+      "likes": {
+        "description": "Total likes across your videos",
+        "type": "number",
+        "group": "stats",
+        "example": "1234567"
+      },
+      "likes_short": {
+        "description": "Total likes shortened",
+        "type": "string",
+        "max_length": 6,
+        "group": "stats",
+        "example": "1.2M"
+      },
+      "videos": {
+        "description": "How many videos you have posted",
+        "type": "number",
+        "group": "stats",
+        "example": "87"
+      },
+      "videos_short": {
+        "description": "Video count shortened",
+        "type": "string",
+        "max_length": 6,
+        "group": "stats",
+        "example": "87"
+      },
+      "followers_line": {
+        "description": "FOLLOWERS and the shortened count on one line",
+        "type": "string",
+        "max_length": 16,
+        "group": "stats",
+        "example": "FOLLOWERS 16K"
+      },
+      "likes_line": {
+        "description": "LIKES and the shortened count on one line",
+        "type": "string",
+        "max_length": 12,
+        "group": "stats",
+        "example": "LIKES 1.2M"
+      },
+      "summary": {
+        "description": "Followers, likes and videos on one line",
+        "type": "string",
+        "max_length": 22,
+        "group": "stats",
+        "example": "16K FANS 1.2M LIKES"
+      }
+    }
+  },
+  "teaser": "{63} 16K FOLLOWERS",
+  "previews": [
+    {
+      "device_type": "flagship",
+      "rows": [
+        "{63} TIKTOK {63}",
+        "PIXEL OWL",
+        "FOLLOWERS 16K",
+        "LIKES 1.2M",
+        "VIDEOS 87",
+        "FOLLOWING 321"
+      ]
+    },
+    {
+      "device_type": "note",
+      "rows": [
+        "{63} PIXEL OWL",
+        "FOLLOWERS 16K",
+        "LIKES 1.2M"
+      ]
+    },
+    {
+      "label": "One line",
+      "device_type": "flagship",
+      "rows": [
+        "",
+        "",
+        "{63} PIXEL OWL",
+        "16K FANS 1.2M LIKES",
+        "",
+        ""
+      ]
+    }
+  ],
+  "demo": {
+    "flagship": {
+      "name": "TikTok Demo",
+      "template": [
+        "{63} TIKTOK {63}",
+        "{{tiktok.display_name}}",
+        "FOLLOWERS {{tiktok.followers_short}}",
+        "LIKES {{tiktok.likes_short}}",
+        "VIDEOS {{tiktok.videos_short}}",
+        "FOLLOWING {{tiktok.following_short}}"
+      ],
+      "line_metadata": [
+        {
+          "alignment": "center",
+          "wrap": false
+        },
+        {
+          "alignment": "center",
+          "wrap": false
+        },
+        {
+          "alignment": "center",
+          "wrap": false
+        },
+        {
+          "alignment": "center",
+          "wrap": false
+        },
+        {
+          "alignment": "center",
+          "wrap": false
+        },
+        {
+          "alignment": "center",
+          "wrap": false
+        }
+      ]
+    },
+    "note": {
+      "name": "TikTok (Note)",
+      "template": [
+        "{63} {{tiktok.display_name}}",
+        "{{tiktok.followers_line}}",
+        "{{tiktok.likes_line}}"
+      ],
+      "line_metadata": [
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        }
+      ]
+    }
+  }
+}
