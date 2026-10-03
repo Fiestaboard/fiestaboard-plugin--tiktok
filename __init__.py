@@ -6,7 +6,7 @@ Sign-in uses FiestaBoard's platform OAuth with the relay flow (the manifest's
 ``oauth`` block). Each user brings their own TikTok developer app (Sandbox mode
 is enough for your own account) and enters its Client key and Client secret.
 TikTok calls the client ID ``client_key`` and wants comma-separated scopes,
-hence ``client_id_param`` and ``scope_separator`` in the manifest (core 9.9.0).
+hence ``client_id_param`` and ``scope_separator`` in the manifest (core 9.11.0).
 The platform stores the tokens (access 24 hours, refresh 365 days) and
 refreshes them; this plugin only calls ``self.get_oauth_token()``.
 

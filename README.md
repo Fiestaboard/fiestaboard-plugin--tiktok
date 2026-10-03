@@ -10,7 +10,7 @@ Show your TikTok follower, following, like and video counts on your board.
 
 The TikTok plugin reads your own account's display name and counts through TikTok's v2 user info API and turns them into board-ready variables, with shortened forms (`16K`, `1.2M`) that fit the board.
 
-You sign in once with FiestaBoard's **Sign in with TikTok** button. TikTok has no shared FiestaBoard app, so you create your own free TikTok developer app (Sandbox mode is enough for your own account) and enter its Client key and Client secret in the plugin's **Account connection** section. Requires FiestaBoard 9.9.0 or later.
+You sign in once with FiestaBoard's **Sign in with TikTok** button. TikTok has no shared FiestaBoard app, so you create your own free TikTok developer app (Sandbox mode is enough for your own account) and enter its Client key and Client secret in the plugin's **Account connection** section. Requires FiestaBoard 9.11.0 or later.
 
 ## Template Variables
 

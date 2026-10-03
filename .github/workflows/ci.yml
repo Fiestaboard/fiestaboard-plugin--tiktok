@@ -27,7 +27,7 @@ jobs:
           # `client_id_param` and `scope_separator`, which TikTok needs
           # (`client_key`, comma-separated scopes). Keep it equal to
           # fiestaboard_version in manifest.json; raise both together.
-          ref: v9.9.0
+          ref: v9.11.0
           path: fiestaboard-core
 
       - uses: actions/setup-python@v5

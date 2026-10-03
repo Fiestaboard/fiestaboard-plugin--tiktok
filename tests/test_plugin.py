@@ -24,7 +24,7 @@ class TestManifest:
         assert manifest_data["id"] == "tiktok"
         assert manifest_data["name"] == "TikTok"
         assert manifest_data["category"] in {"art", "data", "transit", "weather", "entertainment", "utility", "home"}
-        assert manifest_data["fiestaboard_version"] == ">=9.9.0"
+        assert manifest_data["fiestaboard_version"] == ">=9.11.0"
 
     def test_oauth_block(self, manifest_data):
         oauth = manifest_data["oauth"]

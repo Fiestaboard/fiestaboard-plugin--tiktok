@@ -8,7 +8,7 @@
   "documentation": "README.md",
   "icon": "users",
   "category": "data",
-  "fiestaboard_version": ">=9.9.0",
+  "fiestaboard_version": ">=9.11.0",
   "min_refresh_seconds": 300,
   "oauth": {
     "provider_name": "TikTok",

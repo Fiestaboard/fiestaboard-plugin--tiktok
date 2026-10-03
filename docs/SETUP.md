@@ -13,7 +13,7 @@ Connect FiestaBoard to your TikTok account to show your follower, like and video
 
 - A TikTok account
 - About 5 minutes, once, to create your own free app on the [TikTok for Developers](https://developers.tiktok.com/apps/) site. Sandbox mode is enough; TikTok doesn't need to review it
-- FiestaBoard 9.9.0 or later (the plugin's settings have an **Account connection** section)
+- FiestaBoard 9.11.0 or later (the plugin's settings have an **Account connection** section)
 
 FiestaBoard only reads your profile name and counts. It can't post, comment, or change anything in your account.
 
@@ -133,7 +133,7 @@ The connection itself is made with the **Sign in with TikTok** button, not a set
 
 **"This FiestaBoard version cannot sign in to TikTok"**
 
-- Update FiestaBoard to 9.9.0 or later.
+- Update FiestaBoard to 9.11.0 or later.
 
 **Plugin shows "Not Available"**
 
