@@ -43,6 +43,21 @@ class TestManifest:
         assert "client_secret" not in oauth
         assert "client_id" not in oauth
 
+    def test_token_requests_use_core_defaults(self, manifest_data):
+        # TikTok wants client_key + client_secret in the form body ("post", the
+        # core default) and a plain refresh grant with no extra params.
+        oauth = manifest_data["oauth"]
+        assert oauth.get("token_auth_method", "post") == "post"
+        assert "refresh_params" not in oauth
+
+    def test_core_handles_token_lifecycle(self):
+        # Standard grants cover TikTok (rotated refresh tokens are stored by
+        # core), so the plugin keeps the PluginBase hooks that return None.
+        from src.plugins.base import PluginBase
+
+        for hook in ("exchange_oauth_token", "refresh_oauth_token"):
+            assert getattr(TikTokPlugin, hook) is getattr(PluginBase, hook)
+
     def test_settings_hold_client_key_and_secret(self, manifest_data):
         props = manifest_data["settings_schema"]["properties"]
         assert props["client_id"]["type"] == "string"
