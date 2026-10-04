@@ -242,5 +242,13 @@
         }
       ]
     }
-  }
+  },
+  "screenshots": [
+    {
+      "src": "docs/board-display.png",
+      "alt": "TikTok on a FiestaBoard",
+      "caption": "The default template",
+      "primary": true
+    }
+  ]
 }
